@@ -45,7 +45,7 @@ function getAPI() {
 
          
 
-         setTimeout(getOurApi,50000);
+        //  setTimeout(getOurApi,50000);
         
     }
     //outside because I cant reuse same port as I already used it once
