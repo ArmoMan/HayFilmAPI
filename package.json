@@ -4,7 +4,7 @@
   "description": "none",
   "main": "index.js",
   "scripts": {
-    "test": "none"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
