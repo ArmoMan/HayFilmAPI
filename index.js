@@ -1,6 +1,7 @@
 var http = require('http');
 // var dt = require('./jsonApi.json');
 let fs = require("fs");
+let fetch = require("cross-fetch");
 const express = require('express')
 const app = express()
 require('dotenv').config();
