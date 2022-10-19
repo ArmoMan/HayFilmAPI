@@ -20,32 +20,37 @@ function getAPI() {
         const data = await response.json();
         const getFiles = data.result.files;
         const urlList = new Array();
+        const nameList = new Array();
         for(let i = 0; i < getFiles.length;i++){
             const getUrlOfMovie = data.result.files[i].file_code;
+            const getTitleMovie = data.result.files[i].title;
             urlList[i] = getUrlOfMovie;
+            nameList[i] = getTitleMovie;
             //console.log(getUrlOfMovie)
         }
 
-        //add to json File
-        let jsonBody ={ urlList};
-        let str = JSON.stringify(jsonBody);
-        fs.writeFile("jsonApi.json", str, function(error) {
-            if (error) {
-                console.log("Error");
-            } else {
-                console.log("Success");
-            }
-         });
+        //add to json File:
+        // let jsonBody ={ urlList};
+        // let str = JSON.stringify(jsonBody);
+        // fs.writeFile("jsonApi.json", str, function(error) {
+        //     if (error) {
+        //         console.log("Error");
+        //     } else {
+        //         console.log("Success");
+        //     }
+        //  });
 
 
          //creating api on localhost:3000/api
          app.get('/api', (req, res) => {
-         res.json({urlList})
+         res.json({urlList,nameList})
          })
 
          
 
         setTimeout(getOurApi,50000);
+        // setTimeout(getOurApi,(20*60*1000));
+
         
     }
     //outside because I cant reuse same port as I already used it once
